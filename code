@@ -1,0 +1,47 @@
+import java.util.*;
+public class palindromeprime 
+
+{
+
+    public static void main()
+    {
+        Scanner s = new Scanner(System.in);
+        int r1, r2;
+        System.out.println("Enter a range");
+        r1 = s.nextInt();
+        r2 = s.nextInt();
+        int num1 = 0;
+        int num2 = 0;
+
+
+        System.out.println(r1 + " to " + r2 + " prime palindrome numbers are");
+        for (int i = r1; i <= r2; i++)
+        {
+            num1 = i;
+            num2 = 0;
+
+            int blag = 0;
+            while (num1 != 0)
+            {
+                int rem = num1 % 10;
+                num1 = num1/10;
+                num2 = num2 * 10 + rem;
+                if(i == num2)
+                  blag++;
+                
+            }
+            
+            int flag = 0;
+            for (int j = 2; j < i; j++) 
+            {
+            if (i % j == 0)
+                flag++;
+            }
+
+            
+            if (flag == 1 && blag ==1)
+                System.out.print(i + " ");
+        }
+        s.close();
+    }
+}
